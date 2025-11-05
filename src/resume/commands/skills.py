@@ -15,6 +15,7 @@ console = Console()
 def main(
         verbose: bool = typer.Option(
         False,
+        "--verbose",
         help="Show detailed information"
     ),
 ):

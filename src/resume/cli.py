@@ -26,32 +26,21 @@ app.command(name="skills")(skills.main)
 
 
 @app.callback(invoke_without_command=True)
-def main(
-    ctx: typer.Context,
-    version: Optional[bool] = typer.Option(
-        None,
-        "--version",
-        "-v",
-        help="Show version and exit",
-        is_flag=True,
-    ),
-):
+def main(ctx: typer.Context):
     """
-    My CLI Tool - A powerful command-line application.
-    
-    Run my-cli COMMAND --help for command-specific help.
+    Sheikh Huzaif Resume - An interactive CLI resume
+
+    Run sheikh-huzaif-resume COMMAND to view different sections.
     """
-    if version:
-        console.print("[bold cyan]my-cli[/bold cyan] version 1.0.0")
-        raise typer.Exit()
-    
     if ctx.invoked_subcommand is None:
-        welcome_text = """[bold cyan]Welcome to My CLI Tool![/bold cyan]
+        welcome_text = """[bold cyan]Welcome to Sheikh Huzaif's Resume![/bold cyan]
 
-A powerful command-line application built with Python.
+An interactive command-line resume built with Python.
 
-Run [bold green]my-cli --help[/bold green] to see available commands."""
-        
+Run [bold green]sheikh-huzaif-resume COMMAND[/bold green] to explore different sections.
+
+Available commands: info, contact, summary, work-exp, projects, education, skills"""
+
         console.print(Panel(welcome_text, border_style="cyan", padding=(1, 2)))
 
 

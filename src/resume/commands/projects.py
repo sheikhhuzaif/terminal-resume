@@ -16,7 +16,6 @@ def main(
     verbose: bool = typer.Option(
         False,
         "--verbose",
-        "-v",
         help="Show detailed information"
     ),
 ):
