@@ -42,31 +42,31 @@ After installation, you can use the CLI:
 
 ```bash
 # Show help
-resume --help
+sheikh-huzaif-resume --help
 
 # Show version
-resume --version
+sheikh-huzaif-resume --version
 
 # Display contact information
-resume contact
+sheikh-huzaif-resume contact
 
 # Show professional summary
-resume summary
+sheikh-huzaif-resume summary
 
 # View work experience
-resume work-exp
+sheikh-huzaif-resume work-exp
 
 # Browse projects
-resume projects
+sheikh-huzaif-resume projects
 
 # Display education
-resume education
+sheikh-huzaif-resume education
 
 # List skills
-resume skills
+sheikh-huzaif-resume skills
 
 # Show tool info
-resume info
+sheikh-huzaif-resume info
 ```
 
 ## 📖 Commands
@@ -76,7 +76,7 @@ resume info
 Display contact information including email, phone, LinkedIn, and GitHub.
 
 ```bash
-resume contact
+sheikh-huzaif-resume contact
 ```
 
 ### `summary`
@@ -84,7 +84,7 @@ resume contact
 Show professional summary and career overview.
 
 ```bash
-resume summary
+sheikh-huzaif-resume summary
 ```
 
 ### `work-exp`
@@ -92,7 +92,7 @@ resume summary
 View detailed work experience with companies, roles, and achievements.
 
 ```bash
-resume work-exp
+sheikh-huzaif-resume work-exp
 ```
 
 ### `projects`
@@ -100,7 +100,7 @@ resume work-exp
 Browse personal projects with descriptions, technologies, and links.
 
 ```bash
-resume projects
+sheikh-huzaif-resume projects
 ```
 
 ### `education`
@@ -108,7 +108,7 @@ resume projects
 Display educational background and qualifications.
 
 ```bash
-resume education
+sheikh-huzaif-resume education
 ```
 
 ### `skills`
@@ -116,7 +116,7 @@ resume education
 List technical skills organized by categories (languages, frameworks, tools, etc.).
 
 ```bash
-resume skills
+sheikh-huzaif-resume skills
 ```
 
 ### `info`
@@ -124,8 +124,8 @@ resume skills
 Display information about the CLI tool.
 
 ```bash
-resume info
-resume info --verbose
+sheikh-huzaif-resume info
+sheikh-huzaif-resume info --verbose
 ```
 
 ## 🏗️ Project Structure
@@ -216,7 +216,7 @@ mypy src/resume
 python -m resume.cli
 
 # Or after installation
-resume
+sheikh-huzaif-resume
 
 # Using make
 make run
