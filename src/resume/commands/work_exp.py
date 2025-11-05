@@ -25,7 +25,6 @@ def main(
         header.append(f" • {job.get('role', 'Unknown Role')} •", style="bold yellow")
         header.append(f"\n{job.get('tenure', '')} | {job.get('location', '')}", style="dim")
 
-        # Build highlights section
         highlights_list = job.get("highlights", [])
         if highlights_list:
             highlights_md = "\n".join([f"- {h}" for h in highlights_list])
@@ -33,7 +32,6 @@ def main(
         else:
             highlights = Text("No highlights provided.", style="italic dim")
 
-        # Create a nice bordered panel for each job
         console.print(
             Panel.fit(
                 highlights,

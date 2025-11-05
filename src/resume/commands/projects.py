@@ -35,17 +35,14 @@ def main(
         highlights = proj.get("highlights", []) or []
         link = proj.get("link", "")
 
-        # Grid table (two columns) — good for key/value pairs and auto-wrapping
         grid = Table.grid(padding=(0, 1))
         grid.add_column(justify="right", style="bold yellow", no_wrap=True)
         grid.add_column(ratio=1)
 
-        # Add rows
         grid.add_row("Role:", role)
         grid.add_row("Tenure:", tenure)
 
         if highlights:
-            # join highlights with newlines so they naturally wrap inside the second column
             grid.add_row("Highlights:", "\n".join(f"• {h}" for h in highlights))
         else:
             grid.add_row("Highlights:", "—")
@@ -55,7 +52,6 @@ def main(
         else:
             grid.add_row("Link:", "—")
 
-        # Panel with title — expand=True so it looks consistent across terminals
         panel = Panel(
             grid,
             title=f"[bold cyan]{name}[/bold cyan]",

@@ -57,6 +57,20 @@ resume = {
     ],
     "projects": [
         {
+            "name": "Terminal Resume",
+            "tenure": "November 2025",
+            "role": "Python Developer",
+            "highlights": [
+                "Interactive CLI application that displays professional resume in a beautifully formatted terminal interface.",
+                "Built with Typer framework and Rich library for elegant terminal output with tables, panels, and colors.",
+                "Implemented comprehensive test suite with 40 tests achieving 93% code coverage.",
+                "Features modular command architecture for displaying work experience, projects, skills, education, and contact info.",
+                "Developed with AI assistance (Claude Code) for rapid prototyping, test generation, and code optimization.",
+                "Tech: Python, Typer, Rich, Pytest"
+            ],
+            "link": "https://github.com/sheikhhuzaif/terminal-resume"
+        },
+        {
             "name": "SneakerGuide",
             "tenure": "May 2020 - June 2020",
             "role": "Android Developer",

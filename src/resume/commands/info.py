@@ -20,8 +20,7 @@ def main(
     """
     Display information about the CLI tool.
     """
-    
-    # Create a nice table
+
     table = Table(title="CLI Tool Information", border_style="cyan")
     
     table.add_column("Property", style="cyan", no_wrap=True)

@@ -7,6 +7,8 @@ from rich.text import Text
 import textwrap
 
 from ..data import resume
+from ..utils.helpers import format_text
+
 console = Console()
 
 def main(
@@ -23,14 +25,12 @@ def main(
         console.print("[bold red]No summary provided.[/bold red]")
         return
 
-    # Wrap text for better CLI readability
-    wrapped = textwrap.fill(summary, width=80)
+    clean_summary = format_text(summary)
+    wrapped = textwrap.fill(clean_summary, width=80)
 
-    # Create styled text
     styled_text = Text(wrapped, justify="left")
     styled_text.stylize("italic cyan", 0, len(wrapped))
 
-    # Print inside a panel for nice border and title
     panel = Panel(
         styled_text,
         title="💼 Professional Summary",

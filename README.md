@@ -1,12 +1,13 @@
-# My CLI Tool
+# Terminal Resume
 
-A modern, feature-rich Python CLI tool built with Typer and Rich.
+A modern, interactive Python CLI tool that displays your professional resume in a beautifully formatted terminal interface.
 
 ## ✨ Features
 
-- 🎨 **Beautiful Output** - Rich text formatting with colors and tables
+- 🎨 **Beautiful Output** - Rich text formatting with colors, tables, and panels
 - 🚀 **Fast & Lightweight** - Built with Typer for optimal performance
-- 💬 **Interactive Prompts** - User-friendly questionnaires with Questionary
+- 💼 **Professional Display** - Showcase work experience, projects, skills, and education
+- 📱 **Contact Information** - Easy access to your contact details
 - 🧪 **Well Tested** - Comprehensive test suite with pytest
 - 📦 **Easy Distribution** - Install via pip
 - 🎯 **Type Safe** - Full type hints for better IDE support
@@ -22,7 +23,7 @@ pip install sheikh-huzaif-resume
 ### From Source
 
 ```bash
-git https://github.com/sheikhhuzaif/terminal-resume
+git clone https://github.com/sheikhhuzaif/terminal-resume
 cd terminal-resume
 pip install -e .
 ```
@@ -41,28 +42,81 @@ After installation, you can use the CLI:
 
 ```bash
 # Show help
-my-cli --help
+resume --help
 
 # Show version
-my-cli --version
+resume --version
 
-# Run greet command
-my-cli greet --name John
+# Display contact information
+resume contact
 
-# Run info command
-my-cli info --verbose
+# Show professional summary
+resume summary
+
+# View work experience
+resume work-exp
+
+# Browse projects
+resume projects
+
+# Display education
+resume education
+
+# List skills
+resume skills
+
+# Show tool info
+resume info
 ```
 
 ## 📖 Commands
 
-### `greet`
+### `contact`
 
-Greet a user with a friendly message.
+Display contact information including email, phone, LinkedIn, and GitHub.
 
 ```bash
-my-cli greet --name John
-# or interactive mode
-my-cli greet
+resume contact
+```
+
+### `summary`
+
+Show professional summary and career overview.
+
+```bash
+resume summary
+```
+
+### `work-exp`
+
+View detailed work experience with companies, roles, and achievements.
+
+```bash
+resume work-exp
+```
+
+### `projects`
+
+Browse personal projects with descriptions, technologies, and links.
+
+```bash
+resume projects
+```
+
+### `education`
+
+Display educational background and qualifications.
+
+```bash
+resume education
+```
+
+### `skills`
+
+List technical skills organized by categories (languages, frameworks, tools, etc.).
+
+```bash
+resume skills
 ```
 
 ### `info`
@@ -70,34 +124,43 @@ my-cli greet
 Display information about the CLI tool.
 
 ```bash
-my-cli info
-my-cli info --verbose
+resume info
+resume info --verbose
 ```
 
 ## 🏗️ Project Structure
 
 ```
-my-cli-tool/
+terminal-resume/
 ├── src/
-│   └── my_cli_tool/
+│   └── resume/
 │       ├── __init__.py
 │       ├── cli.py              # Main CLI entry point
+│       ├── data.py             # Resume data store
 │       ├── commands/           # Command implementations
 │       │   ├── __init__.py
-│       │   ├── greet.py
+│       │   ├── contact.py
+│       │   ├── summary.py
+│       │   ├── work_exp.py
+│       │   ├── projects.py
+│       │   ├── education.py
+│       │   ├── skills.py
 │       │   └── info.py
 │       └── utils/              # Utility functions
 │           ├── __init__.py
 │           └── helpers.py
 ├── tests/                      # Test suite
 │   ├── __init__.py
-│   └── test_helpers.py
-├── requirements.txt            # Production dependencies
-├── requirements-dev.txt        # Development dependencies
+│   ├── test_helpers.py
+│   └── test_commands.py
+├── requirements/
+│   ├── requirements.txt        # Production dependencies
+│   └── requirements-dev.txt    # Development dependencies
 ├── setup.py                    # Setup configuration
 ├── pyproject.toml             # Modern Python project config
 ├── pytest.ini                 # Pytest configuration
 ├── Makefile                   # Convenient commands
+├── LICENSE                    # MIT License
 └── README.md
 ```
 
@@ -107,15 +170,14 @@ my-cli-tool/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/my-cli-tool.git
-cd my-cli-tool
+git clone https://github.com/sheikhhuzaif/terminal-resume.git
+cd terminal-resume
 
 # Install development dependencies
 make install-dev
 
 # Or manually
 pip install -e ".[dev]"
-pip install -r requirements-dev.txt
 ```
 
 ### Running Tests
@@ -129,7 +191,7 @@ make test-cov
 
 # Or directly with pytest
 pytest
-pytest --cov=my_cli_tool --cov-report=html
+pytest --cov=resume --cov-report=html
 ```
 
 ### Code Quality
@@ -138,26 +200,23 @@ pytest --cov=my_cli_tool --cov-report=html
 # Format code with Black
 make format
 
-# Check formatting
-make format-check
-
 # Lint code
 make lint
 
 # Or run individually
-black src/my_cli_tool tests
-flake8 src/my_cli_tool tests
-mypy src/my_cli_tool
+black src/resume tests
+flake8 src/resume tests
+mypy src/resume
 ```
 
 ### Running Locally
 
 ```bash
 # Run directly
-python -m my_cli_tool.cli
+python -m resume.cli
 
 # Or after installation
-my-cli
+resume
 
 # Using make
 make run
@@ -165,33 +224,33 @@ make run
 
 ## 🔧 Adding New Commands
 
-1. Create a new file in `src/my_cli_tool/commands/`:
+1. Create a new file in `src/resume/commands/`:
 
 ```python
-# src/my_cli_tool/commands/mycommand.py
+# src/resume/commands/mycommand.py
 import typer
 from rich.console import Console
 
 console = Console()
 
 def main(
-    option: str = typer.Option("default", "--option", "-o", help="An option")
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose output")
 ):
     """
     Description of your command.
     """
-    console.print(f"[green]Running with option: {option}[/green]")
+    console.print("[green]Command executed successfully![/green]")
 ```
 
-2. Register it in `src/my_cli_tool/cli.py`:
+2. Register it in `src/resume/cli.py`:
 
 ```python
-from .commands import greet, info, mycommand
+from .commands import contact, summary, mycommand
 
-app.command()(mycommand.main)
+app.command(name="mycommand")(mycommand.main)
 ```
 
-3. Add tests in `tests/test_mycommand.py`
+3. Add tests in `tests/test_commands.py`
 
 ## 📦 Building and Publishing
 
@@ -221,16 +280,17 @@ python -m twine upload dist/*
 ## 🧰 Dependencies
 
 ### Core Dependencies
-- **typer** - CLI framework with great UX
-- **rich** - Beautiful terminal formatting
-- **questionary** - Interactive prompts
-- **pyfiglet** - ASCII art text
+- **typer[all]==0.9.0** - CLI framework with great UX
+- **rich==13.7.0** - Beautiful terminal formatting
+- **questionary==2.0.1** - Interactive prompts
+- **pyfiglet==1.0.2** - ASCII art text
 
 ### Development Dependencies
-- **pytest** - Testing framework
-- **black** - Code formatter
-- **flake8** - Linter
-- **mypy** - Type checker
+- **pytest==7.4.3** - Testing framework
+- **pytest-cov==4.1.0** - Code coverage
+- **black==23.12.1** - Code formatter
+- **flake8==7.0.0** - Linter
+- **mypy==1.8.0** - Type checker
 
 ## 📝 License
 
@@ -248,6 +308,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-Your Name - your.email@example.com
+Sheikh Huzaif - sheikhhuzaif007@gmail.com
 
-Project Link: [https://github.com/yourusername/my-cli-tool](https://github.com/yourusername/my-cli-tool)
+Project Link: [https://github.com/sheikhhuzaif/terminal-resume](https://github.com/sheikhhuzaif/terminal-resume)

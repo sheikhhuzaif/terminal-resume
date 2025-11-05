@@ -8,6 +8,8 @@ from rich.table import Table
 import textwrap
 
 from ..data import resume
+from ..utils.helpers import format_category_name
+
 console = Console()
 
 def main(
@@ -27,8 +29,7 @@ def main(
     console.print("\n🧠 [bold underline bright_blue]Technical Skills[/bold underline bright_blue]\n")
 
     for category, items in skills.items():
-        # Convert keys like 'programming_languages' → 'Programming Languages'
-        title = category.replace("_", " ").title()
+        title = format_category_name(category)
         formatted_items = ", ".join(items)
         panel = Panel(
             formatted_items,

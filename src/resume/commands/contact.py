@@ -5,6 +5,8 @@ from rich.console import Console
 from rich.table import Table
 
 from ..data import resume
+from ..utils.helpers import safe_get
+
 console = Console()
 
 def main(
@@ -20,11 +22,11 @@ def main(
         raise typer.Exit(code=1)
 
     table = Table(title="📇 Contact Information", show_header=False, box=None, padding=(0, 2))
-    table.add_row("[bold cyan]Name[/bold cyan]", contact_info.get("name", "N/A"))
-    table.add_row("[bold cyan]Email[/bold cyan]", contact_info.get("email", "N/A"))
-    table.add_row("[bold cyan]Phone[/bold cyan]", contact_info.get("phone", "N/A"))
-    table.add_row("[bold cyan]LinkedIn[/bold cyan]", contact_info.get("linkedin", "N/A"))
-    table.add_row("[bold cyan]GitHub[/bold cyan]", contact_info.get("github", "N/A"))
+    table.add_row("[bold cyan]Name[/bold cyan]", safe_get(contact_info, "name"))
+    table.add_row("[bold cyan]Email[/bold cyan]", safe_get(contact_info, "email"))
+    table.add_row("[bold cyan]Phone[/bold cyan]", safe_get(contact_info, "phone"))
+    table.add_row("[bold cyan]LinkedIn[/bold cyan]", safe_get(contact_info, "linkedin"))
+    table.add_row("[bold cyan]GitHub[/bold cyan]", safe_get(contact_info, "github"))
 
     console.print(table)
         
