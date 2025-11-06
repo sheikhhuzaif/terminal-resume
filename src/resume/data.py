@@ -135,12 +135,5 @@ resume = {
         "email": "sheikhhuzaif007@gmail.com",
         "github_sneaker": "https://github.com/sheikhhuzaif/SneakerNews1",
         "github_portfolio": "https://github.com/sheikhhuzaif/portfolio_app"
-    },
-    "enhancements_suggested": [
-        "Add a short 'Tech stack' section near the top for quick scanning (pick top 6–8 technologies).",
-        "Quantify impact where possible (percentage improvements, user / request counts, latency numbers).",
-        "Add a one-line objective/title under your name (e.g., 'Backend Engineer — API Performance & Platform Reliability').",
-        "Consider a brief 'Selected achievements' section with 2–3 bullet metrics (p99 improvement, API calls reduced, number of migrated jobs).",
-        "List certifications or relevant coursework if available (AWS, data structures/algorithms prep, etc.)."
-    ]
+    }
 }
